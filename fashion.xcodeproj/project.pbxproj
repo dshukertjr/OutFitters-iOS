@@ -9,19 +9,24 @@
 /* Begin PBXBuildFile section */
 		2DCC9A5A1F86628000CB52B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC9A591F86628000CB52B3 /* AppDelegate.swift */; };
 		2DCC9A5C1F86628000CB52B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC9A5B1F86628000CB52B3 /* ViewController.swift */; };
-		2DCC9A5F1F86628000CB52B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCC9A5D1F86628000CB52B3 /* Main.storyboard */; };
 		2DCC9A611F86628000CB52B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DCC9A601F86628000CB52B3 /* Assets.xcassets */; };
 		2DCC9A641F86628000CB52B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCC9A621F86628000CB52B3 /* LaunchScreen.storyboard */; };
+		2DCC9A6F1F86747A00CB52B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DCC9A6E1F86745F00CB52B3 /* GoogleService-Info.plist */; };
+		342DB39B60613BFA41308696 /* Pods_fashion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234D605C5ACBD59956D52902 /* Pods_fashion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		234D605C5ACBD59956D52902 /* Pods_fashion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCC9A561F86628000CB52B3 /* fashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCC9A591F86628000CB52B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DCC9A5B1F86628000CB52B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2DCC9A5E1F86628000CB52B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DCC9A601F86628000CB52B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DCC9A631F86628000CB52B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DCC9A651F86628000CB52B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DCC9A6D1F8673A700CB52B3 /* fashion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fashion.entitlements; sourceTree = "<group>"; };
+		2DCC9A6E1F86745F00CB52B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6AE3A24FABB37903A80C831C /* Pods-fashion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashion/Pods-fashion.debug.xcconfig"; sourceTree = "<group>"; };
+		6BB4F55C08B1750962E9B673 /* Pods-fashion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashion.release.xcconfig"; path = "Pods/Target Support Files/Pods-fashion/Pods-fashion.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342DB39B60613BFA41308696 /* Pods_fashion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,8 @@
 			children = (
 				2DCC9A581F86628000CB52B3 /* fashion */,
 				2DCC9A571F86628000CB52B3 /* Products */,
+				95E2629EE11517A12C9040C1 /* Pods */,
+				EFE4C1F8680D4296907762F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +62,32 @@
 		2DCC9A581F86628000CB52B3 /* fashion */ = {
 			isa = PBXGroup;
 			children = (
+				2DCC9A6E1F86745F00CB52B3 /* GoogleService-Info.plist */,
+				2DCC9A6D1F8673A700CB52B3 /* fashion.entitlements */,
 				2DCC9A591F86628000CB52B3 /* AppDelegate.swift */,
 				2DCC9A5B1F86628000CB52B3 /* ViewController.swift */,
-				2DCC9A5D1F86628000CB52B3 /* Main.storyboard */,
 				2DCC9A601F86628000CB52B3 /* Assets.xcassets */,
 				2DCC9A621F86628000CB52B3 /* LaunchScreen.storyboard */,
 				2DCC9A651F86628000CB52B3 /* Info.plist */,
 			);
 			path = fashion;
+			sourceTree = "<group>";
+		};
+		95E2629EE11517A12C9040C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6AE3A24FABB37903A80C831C /* Pods-fashion.debug.xcconfig */,
+				6BB4F55C08B1750962E9B673 /* Pods-fashion.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EFE4C1F8680D4296907762F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				234D605C5ACBD59956D52902 /* Pods_fashion.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DCC9A681F86628000CB52B3 /* Build configuration list for PBXNativeTarget "fashion" */;
 			buildPhases = (
+				48DA9320405DF66AAFFDC48F /* [CP] Check Pods Manifest.lock */,
 				2DCC9A521F86628000CB52B3 /* Sources */,
 				2DCC9A531F86628000CB52B3 /* Frameworks */,
 				2DCC9A541F86628000CB52B3 /* Resources */,
+				2C52A08DAE7AF6C1CDE937F8 /* [CP] Embed Pods Frameworks */,
+				C83767DC1255D8E86329E7C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +126,14 @@
 					2DCC9A551F86628000CB52B3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -124,12 +161,60 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCC9A641F86628000CB52B3 /* LaunchScreen.storyboard in Resources */,
+				2DCC9A6F1F86747A00CB52B3 /* GoogleService-Info.plist in Resources */,
 				2DCC9A611F86628000CB52B3 /* Assets.xcassets in Resources */,
-				2DCC9A5F1F86628000CB52B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C52A08DAE7AF6C1CDE937F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fashion/Pods-fashion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48DA9320405DF66AAFFDC48F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C83767DC1255D8E86329E7C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fashion/Pods-fashion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DCC9A521F86628000CB52B3 /* Sources */ = {
@@ -144,14 +229,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2DCC9A5D1F86628000CB52B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2DCC9A5E1F86628000CB52B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2DCC9A621F86628000CB52B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,8 +349,10 @@
 		};
 		2DCC9A691F86628000CB52B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AE3A24FABB37903A80C831C /* Pods-fashion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fashion/fashion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6UYZY8QU4;
 				INFOPLIST_FILE = fashion/Info.plist;
@@ -287,8 +366,10 @@
 		};
 		2DCC9A6A1F86628000CB52B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BB4F55C08B1750962E9B673 /* Pods-fashion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fashion/fashion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6UYZY8QU4;
 				INFOPLIST_FILE = fashion/Info.plist;

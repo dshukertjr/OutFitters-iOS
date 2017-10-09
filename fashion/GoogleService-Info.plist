@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>322855535560-9gr5qg1dehacgenlemrrk36q1jm3vu4k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.322855535560-9gr5qg1dehacgenlemrrk36q1jm3vu4k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvyxv_heK2jOdTqde88UUAwB8Yh4PpHQ0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>322855535560</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dressu-style.fashion</string>
+	<key>PROJECT_ID</key>
+	<string>fashion-ecb00</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fashion-ecb00.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:322855535560:ios:e3c38a944284733f</string>
+	<key>DATABASE_URL</key>
+	<string>https://fashion-ecb00.firebaseio.com</string>
+</dict>
+</plist>

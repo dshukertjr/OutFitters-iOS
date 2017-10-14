@@ -24,10 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let flowLayout = UICollectionViewFlowLayout()
-        let customCollectionViewController = CustomCollectionViewController(collectionViewLayout: flowLayout)
+//        let feedController = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+//        let navigationController = UINavigationController(rootViewController: feedController)
+//        window?.rootViewController = navigationController
         
-        window?.rootViewController = UINavigationController(rootViewController: customCollectionViewController)
+        window?.rootViewController = CustomTabBarController()
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 51/255, green: 90/255, blue: 149/255, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //changing the tab bar button color
+        UITabBar.appearance().tintColor = UIColor(red: 70/255, green: 146/255, blue: 250/255, alpha: 1)
+        
+        application.statusBarStyle = .lightContent
+        
+//        let flowLayout = UICollectionViewFlowLayout()
+//        let customCollectionViewController = CustomCollectionViewController(collectionViewLayout: flowLayout)
+//        window?.rootViewController = UINavigationController(rootViewController: customCollectionViewController)
         
 //        [[end creating the window]]
         

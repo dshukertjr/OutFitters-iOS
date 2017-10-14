@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class Post {
     var name: String?
     var statusText: String?
     var profileImageName: String?
     var statusImageName: String?
+    var statusImage: UIImage?
 }
 
 class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -25,20 +27,61 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let postMark = Post()
-        postMark.name = "mark zuckerberg"
-        postMark.statusText = "meanwhile, best turned to the dark side."
-        postMark.profileImageName = "profile1"
-        postMark.statusImageName = "status1"
         
-        let postSteve = Post()
-        postSteve.name = "steve jobs"
-        postSteve.statusText = "something different from mark. and this is going to be something really long. like two lines or more..."
-        postSteve.profileImageName = "profile2"
-        postSteve.statusImageName = "status2"
         
-        posts.append(postMark)
-        posts.append(postSteve)
+        
+        
+        
+        
+//load data from cloud firestore
+        let db = Firestore.firestore()
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        db.collection("posts").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    let post = Post()
+                    
+                    
+                    // Create a reference to the file you want to download
+                    let islandRef = storageRef.child("posts").child(data["statusImage"] as! String)
+                    
+                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                    islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                            print("error occured", error)
+                        } else {
+                            print("loaded")
+                            let image = UIImage(data: data!)
+                            post.statusImage = image
+                        }
+                    }
+                    
+                    
+                    post.name = "Tyler Shukert"
+                    post.statusText = data["statusText"] as! String
+                    post.profileImageName = "profile1"
+//                    post.statusImageName = "status2"
+                    self.posts.append(post)
+                    self.collectionView?.reloadData()
+                }
+            }
+        }
+//end getting the data from cloud firestore
+        
+        
+        
+        
+        
+        
+        
+        
         
 //        navigationItem.title = "facebook feed"
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
@@ -129,6 +172,10 @@ class FeedCell: UICollectionViewCell {
             if let statusImageName = post?.statusImageName {
                 statusImageView.image = UIImage(named: statusImageName)
             }
+            
+            if let statusImage = post?.statusImage {
+                statusImageView.image = statusImage
+            }
         }
     }
     
@@ -145,6 +192,7 @@ class FeedCell: UICollectionViewCell {
         return label
     }()
     
+    //set up for status text view
     let statusTextView: UITextView = {
         let textView = UITextView()
         textView.text = "mean while sometinghappen ed"
@@ -154,6 +202,7 @@ class FeedCell: UICollectionViewCell {
         return textView
     }()
     
+    //set up for profile image view
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "sample")
@@ -162,6 +211,7 @@ class FeedCell: UICollectionViewCell {
         return imageView
     }()
     
+    //set up for status image view
     let statusImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "dog")
@@ -170,7 +220,7 @@ class FeedCell: UICollectionViewCell {
         return imageView
     }()
     
-    //        add subviews and add constraints
+    //add subviews and add constraints
     func setupViews(){
         backgroundColor = UIColor.white
         

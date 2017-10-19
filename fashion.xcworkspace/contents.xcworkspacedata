@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:fashion/../CustomTabBarController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:fashion/../SecondViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:fashion/../FeedCollectionView.swift">
+   </FileRef>
+   <FileRef
       location = "group:fashion.xcodeproj">
    </FileRef>
    <FileRef

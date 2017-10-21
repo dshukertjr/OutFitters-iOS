@@ -16,10 +16,13 @@ class HomeCell: DatasourceCell {
     override var datasourceItem: Any? {
         didSet {
             guard let post = datasourceItem as? Post else { return }
-            profileImageView.image = #imageLiteral(resourceName: "profile1")
             nameLabel.text = post.userName
             statusTextView.text = post.statusText
 //            statusImageView.image = #imageLiteral(resourceName: "status2")
+            
+            if let profileImageName = post.profileImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+            }
 
             if let statusImageRef = post.statusImageRef {
                 // Placeholder image
@@ -27,7 +30,6 @@ class HomeCell: DatasourceCell {
                 
                 let storageRef = Storage.storage().reference()
                 let reference = storageRef.child("posts/\(statusImageRef)")
-                print("*** ref ", reference)
                 
                 statusImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
             }
@@ -63,6 +65,33 @@ class HomeCell: DatasourceCell {
         imageView.layer.masksToBounds = true
         return imageView
     }()
+    
+    
+    let postButtonWrapper: UIStackView = {
+        let postLikeButton: UIButton = {
+            let button = UIButton(type: .system)
+            //with rendering mode is to maintain the original color of the image
+//            button.backgroundColor = .red
+            button.setImage(#imageLiteral(resourceName: "postIineButton").withRenderingMode(.alwaysOriginal), for: .normal)
+//            button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+            return button
+        }()
+        let postCommentButton: UIButton = {
+            let button = UIButton(type: .system)
+            //with rendering mode is to maintain the original color of the image
+//            button.backgroundColor = .red
+            button.setImage(#imageLiteral(resourceName: "postComent").withRenderingMode(.alwaysOriginal), for: .normal)
+//            button.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+            return button
+        }()
+        let stackView = UIStackView()
+        stackView.addArrangedSubview(postLikeButton)
+        stackView.addArrangedSubview(postCommentButton)
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
 
     //set up for status text view
     let statusTextView: UITextView = {
@@ -85,16 +114,18 @@ class HomeCell: DatasourceCell {
         addSubview(profileImageView)
         addSubview(nameLabel)
         addSubview(statusImageView)
+        addSubview(postButtonWrapper)
         addSubview(statusTextView)
         
         
-        profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 8, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 28, heightConstant: 28)
+        profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 28, heightConstant: 28)
         nameLabel.anchor(nil, left: profileImageView.rightAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 28)
         nameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
         
         //height of the image view is the same as the width: square image view
         statusImageView.anchor(profileImageView.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: UIScreen.main.bounds.width)
-        statusTextView.anchor(statusImageView.bottomAnchor, left: profileImageView.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
+        postButtonWrapper.anchor(statusImageView.bottomAnchor, left: profileImageView.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 34)
+//        statusTextView.anchor(statusImageView.bottomAnchor, left: profileImageView.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
 
     }
 }

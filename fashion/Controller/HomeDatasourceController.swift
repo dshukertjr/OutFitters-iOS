@@ -21,6 +21,7 @@ class HomeDatasourceController: DatasourceController {
         collectionView?.backgroundColor = .white
         
         
+        
         let homeDatasource = HomeDatasource()
         self.datasource = homeDatasource
         
@@ -31,10 +32,15 @@ class HomeDatasourceController: DatasourceController {
         }
     }
     
+    //change the sapcing between each cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     private func setUpNavigationItems() {
         //change the navigation bar title
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "newspaper"))
-        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "homeNavigation"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = titleImageView
 //        navigationItem.title = "Feed"

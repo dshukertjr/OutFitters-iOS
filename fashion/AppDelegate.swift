@@ -29,17 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = navigationController
         
         
-        //uncomment for tab bar controller
-//        window?.rootViewController = CustomTabBarController()
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 51/255, green: 90/255, blue: 149/255, alpha: 1)
-//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-//        
-//        //changing the tab bar button color
-//        UITabBar.appearance().tintColor = UIColor(red: 70/255, green: 146/255, blue: 250/255, alpha: 1)
-//        
+        //tab bar controller
+        window?.rootViewController = MainTabBarController()
+        UINavigationBar.appearance().barTintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //changing the tab bar button color
+        UITabBar.appearance().tintColor = UIColor(red: 70/255, green: 146/255, blue: 250/255, alpha: 1)
+        //end tab bar controller
 
-        window?.rootViewController = UINavigationController(rootViewController: HomeDatasourceController())
-                
+
+        
+        //root view controller is set to home datasource controller here
+//        window?.rootViewController = UINavigationController(rootViewController: HomeDatasourceController())
+        
         //makrs the statusBar font color white
 //        application.statusBarStyle = .lightContent
 

@@ -14,7 +14,7 @@ extension HomeDatasourceController {
         //populate the left side of the navigation bar
         let followButton = UIButton(type: .system)
         //with rendering mode is to maintain the original color of the image
-        followButton.setImage(#imageLiteral(resourceName: "newspaper").withRenderingMode(.alwaysOriginal), for: .normal)
+        followButton.setImage(#imageLiteral(resourceName: "tabCamera").withRenderingMode(.alwaysOriginal), for: .normal)
         followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
 
@@ -24,7 +24,7 @@ extension HomeDatasourceController {
         //populate the left side of the navigation bar
         let searchButton = UIButton(type: .system)
         //with rendering mode is to maintain the original color of the image
-        searchButton.setImage(#imageLiteral(resourceName: "newspaper").withRenderingMode(.alwaysOriginal), for: .normal)
+        searchButton.setImage(#imageLiteral(resourceName: "tabMessage").withRenderingMode(.alwaysOriginal), for: .normal)
         searchButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: searchButton), UIBarButtonItem(customView: searchButton)]
 

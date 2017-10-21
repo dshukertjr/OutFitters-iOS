@@ -12,7 +12,6 @@ class Post {
     var profileImageName: String?
     var userName: String?
     var statusText: String?
-    var statusImageName: String?
     var statusImageRef: String?
     var statusImage: UIImage?
 }

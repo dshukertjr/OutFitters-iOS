@@ -52,9 +52,9 @@ class HomeDatasource: Datasource {
                     }
                     
                     
-                    post.userName = "Tyler Shukert"
+                    post.userName = "team.sayapan"
                     post.statusText = data["statusText"] as? String
-                    post.profileImageName = "profile1"
+                    post.profileImageName = "profile3"
                     //                    post.statusImageName = "status2"
                     self.posts.append(post)
 

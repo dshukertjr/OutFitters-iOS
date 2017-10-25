@@ -39,7 +39,7 @@ class HomeDatasourceController: DatasourceController {
     
     private func setUpNavigationItems() {
         //change the navigation bar title
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "homeNavigation"))
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "navigationTitle"))
         titleImageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = titleImageView
@@ -66,7 +66,8 @@ class HomeDatasourceController: DatasourceController {
             //14 is for the padding of the status text view
             //52 is the height of other stuff eg images views
             let statusImageViewHeight = view.frame.width
-            return CGSize(width: view.frame.width, height: estimatedFrame.height + statusImageViewHeight + 52 + 14)
+            let postButtonWrapperHeight = (34 + 12) as CGFloat
+            return CGSize(width: view.frame.width, height: estimatedFrame.height + statusImageViewHeight + postButtonWrapperHeight + 52 + 14)
         }
         
         return CGSize(width: view.frame.width, height: 200)

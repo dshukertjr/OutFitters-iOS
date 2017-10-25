@@ -125,7 +125,7 @@ class HomeCell: DatasourceCell {
         //height of the image view is the same as the width: square image view
         statusImageView.anchor(profileImageView.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: UIScreen.main.bounds.width)
         postButtonWrapper.anchor(statusImageView.bottomAnchor, left: profileImageView.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 34)
-//        statusTextView.anchor(statusImageView.bottomAnchor, left: profileImageView.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
+        statusTextView.anchor(postButtonWrapper.bottomAnchor, left: profileImageView.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
 
     }
 }

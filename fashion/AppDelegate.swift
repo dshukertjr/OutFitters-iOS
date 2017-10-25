@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
         //changing the tab bar button color
-        UITabBar.appearance().tintColor = UIColor(red: 70/255, green: 146/255, blue: 250/255, alpha: 1)
+        UITabBar.appearance().tintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         //end tab bar controller
 
 

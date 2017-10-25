@@ -23,47 +23,88 @@ class HomeDatasource: Datasource {
     var posts = [Post]()
     
     
+    
     func fetchFromDatabase(completion: @escaping () -> Void) {
-        let db = Firestore.firestore()
-        var posts = [Post]()
-        //        let storageRef = Storage.storage().reference()
+        let rootRef = Database.database().reference()
         
-        db.collection("posts").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+        
+        rootRef.child("posts").queryOrderedByKey().queryLimited(toLast: 20).observeSingleEvent(of: .value, with: { (snapshot) in
+            print("***", snapshot.value!)
+            if let dictionary = snapshot.value as? NSDictionary {
+                for wholeData in dictionary {
                     
-                    //data contains the data from data base
-                    let data = document.data()
-                    
+                    let data = wholeData.value as! NSDictionary
                     
                     let post = Post()
                     
-                    
-//                    if let statusImageName = data["statusImage"] {
-//                        post.statusImageName = statusImageName as? String
-//                    }
-                    
+
+                    if let statusText = data["statusText"] {
+                        post.statusText = statusText as? String
+                    }
+
                     //set the status image if it exists
                     if let statusImage = data["statusImage"] {
-                        post.statusImageRef = statusImage as! String
+                        post.statusImageRef = statusImage as? String
                     }
                     
                     
                     post.userName = "team.sayapan"
-                    post.statusText = data["statusText"] as? String
                     post.profileImageName = "profile3"
                     //                    post.statusImageName = "status2"
                     self.posts.append(post)
 
-                    //                    self.collectionView?.reloadData()
                 }
-                //by calling completion, the collection view cells are being reloaded
-                completion()
             }
-        }
+            
+            completion()
+        })
+        
+        
+        
+        
+        
+//        let db = Firestore.firestore()
+//        var posts = [Post]()
+//        //        let storageRef = Storage.storage().reference()
+//
+//        db.collection("posts").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//
+//                    //data contains the data from data base
+//                    let data = document.data()
+//
+//
+//                    let post = Post()
+//
+//
+////                    if let statusImageName = data["statusImage"] {
+////                        post.statusImageName = statusImageName as? String
+////                    }
+//
+//                    //set the status image if it exists
+//                    if let statusImage = data["statusImage"] {
+//                        post.statusImageRef = statusImage as! String
+//                    }
+//
+//
+//                    post.userName = "team.sayapan"
+//                    post.statusText = data["statusText"] as? String
+//                    post.profileImageName = "profile3"
+//                    //                    post.statusImageName = "status2"
+//                    self.posts.append(post)
+//
+//                    //                    self.collectionView?.reloadData()
+//                }
+//                //by calling completion, the collection view cells are being reloaded
+//                completion()
+//            }
+//        }
+        
+        
     }
     
     

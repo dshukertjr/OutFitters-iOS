@@ -25,9 +25,8 @@ class HomeDatasourceController: DatasourceController {
         let homeDatasource = HomeDatasource()
         self.datasource = homeDatasource
         
-//        homeDatasource.fetchFromDatabase()
-//        self.collectionView?.reloadData()
         homeDatasource.fetchFromDatabase() {
+            //reload cells after fetching new data
             self.collectionView?.reloadData()
         }
     }

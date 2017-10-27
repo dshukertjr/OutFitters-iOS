@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //initialize necessary things
         FirebaseApp.configure()
         Messaging.messaging().shouldEstablishDirectChannel = true
-//        Database.database().isPersistenceEnabled = true
+        Database.database().isPersistenceEnabled = true
 
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self

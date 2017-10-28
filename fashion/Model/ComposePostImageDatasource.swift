@@ -16,14 +16,21 @@ class ComposePostImageDatasource: Datasource {
     
     var images = [ComposePostImage]()
     
+    private func fetchPhotoAtIndexFromEnd(index: Int) {
+        
+    }
+    
     
     func grabPhotos(completion: @escaping () -> Void) {
         
         let imageManager = PHImageManager.default()
         
+        let numLoadEachTime = 40
+        
         let requestOptions = PHImageRequestOptions()
         requestOptions.isSynchronous = true
-        requestOptions.deliveryMode = .highQualityFormat
+//        requestOptions.deliveryMode = .highQualityFormat
+        requestOptions.deliveryMode = .fastFormat
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
@@ -31,8 +38,15 @@ class ComposePostImageDatasource: Datasource {
             
             if fetchResult.count > 0 {
                 
-                for i in 0..<fetchResult.count {
-                    
+                
+                let loadStart = self.images.count
+                var loadEnd = numLoadEachTime + loadStart
+                if(fetchResult.count < loadEnd) {
+                    loadEnd = fetchResult.count
+                }
+                
+                for i in loadStart..<loadEnd {
+
                     imageManager.requestImage(for: fetchResult.object(at: i) , targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: requestOptions, resultHandler:
                         {
                             image, error in
@@ -41,18 +55,19 @@ class ComposePostImageDatasource: Datasource {
                             
                             composePostImage.postImage = image!
                             
-                            print("image")
-                            
                             self.images.append(composePostImage)
                     })
+                    
+                    if(i + 1 == loadEnd) {
+                        completion()
+                    }
                     
                 }
                 
             }else {
                 
                 print("you got no photos")
-                completion()
-//                self.collectionView?.reloadData()
+                
             }
             
         }

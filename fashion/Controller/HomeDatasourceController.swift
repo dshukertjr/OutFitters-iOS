@@ -11,6 +11,7 @@ import LBTAComponents
 
 //controller for the feed screen
 class HomeDatasourceController: DatasourceController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +50,26 @@ class HomeDatasourceController: DatasourceController {
         setupOtherNavigationController()
         
     }
+    
+    
+    //reload or load more data depending on the scroll
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+//        print("offsetY", offsetY)
+        let contentHeight = scrollView.contentSize.height
+        if offsetY < -50 {
+            //function to load more images
+            print("above 0", offsetY)
+            self.collectionView?.reloadData()
+        }else if offsetY > (contentHeight - scrollView.frame.size.height - 100) {
+            //load more data
+            //function to load more images
+            print("loading new feed")
+            self.collectionView?.reloadData()
+        }
+
+    }
+
     
     //return the size of cell
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

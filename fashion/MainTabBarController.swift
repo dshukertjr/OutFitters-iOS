@@ -34,7 +34,10 @@ class MainTabBarController: UITabBarController {
 //third tab setting start
         let composePost = ComposePostController()
         
-        composePost.tabBarItem.image = #imageLiteral(resourceName: "tabPlus")
+        let navigationComposePost = UINavigationController(rootViewController: composePost)
+        
+        navigationComposePost.tabBarItem.image = #imageLiteral(resourceName: "tabPlus")
+
 //third tab setting end
         
 //four tab setting start
@@ -57,7 +60,7 @@ class MainTabBarController: UITabBarController {
         
         //add all of the view controllers
 //        viewControllers = [navigationController, secondNavigationController]
-        viewControllers = [navigationController,navigationLikes, composePost,navigationMyPage]
+        viewControllers = [navigationController,navigationLikes, navigationComposePost,navigationMyPage]
 
         //turn off the transparency of tab bar
         tabBar.isTranslucent = false

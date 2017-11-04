@@ -358,7 +358,7 @@ class EditPostController: UIViewController, UITextViewDelegate, UICollectionView
         print("finished editing")
         if textView.text.isEmpty {
             textView.text = "キャプションを書く"
-            textView.textColor = UIColor.lightGray
+            textView.textColor = .lightGray
         }
     }
     //end for placeholder text
@@ -475,11 +475,26 @@ class EditPostController: UIViewController, UITextViewDelegate, UICollectionView
     }
     
     func submitToDataBase() {
+        //go to the home tab
+        func openHomeTab() {
+            print("open home tab called")
+            self.tabBarController?.selectedIndex = 0
+        }
+        
+        //dismiss the current view controller
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: {
+            openHomeTab()
+        })
+
         let db = Firestore.firestore()
         
         let postRef = db.collection("posts").document()
         
-        let statusText = self.statusTextView.text as String
+        var statusText = self.statusTextView.text as String
+        if(self.statusTextView.textColor == .lightGray) {
+            statusText = ""
+        }
         let statusImage = (postRef.documentID as String) + ".png"
         
         print("postRef", postRef)
@@ -491,8 +506,10 @@ class EditPostController: UIViewController, UITextViewDelegate, UICollectionView
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
+                
                 print("Successfully submitted status text")
                 self.submitToStorage(imageName: statusImage)
+
             }
         }
     }

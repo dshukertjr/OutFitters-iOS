@@ -14,10 +14,6 @@ class HomeDatasource: Datasource {
     
     
     
-//    let posts: [Post] = {
-//
-//
-//    }()
     
     var posts = [Post]()
     
@@ -65,7 +61,7 @@ class HomeDatasource: Datasource {
         //read data from cloud firestore
         let db = Firestore.firestore()
 
-        db.collection("posts").getDocuments() { (querySnapshot, err) in
+        db.collection("posts").order(by: "createTime", descending: true).limit(to: 10).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

@@ -82,12 +82,19 @@ class HomeDatasourceController: DatasourceController {
             let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
             
             let estimatedFrame = NSString(string: post.statusText!).boundingRect(with: displaySize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+            var statusTextViewHeight = estimatedFrame.height
+            var statusTextViewPadding = CGFloat(14)
+            if(post.statusText! == "") {
+                statusTextViewHeight = 0
+                statusTextViewPadding = 0
+                print("*** status is empty")
+            }
             
             //14 is for the padding of the status text view
             //52 is the height of other stuff eg images views
             let statusImageViewHeight = view.frame.width
             let postButtonWrapperHeight = (34 + 12) as CGFloat
-            return CGSize(width: view.frame.width, height: estimatedFrame.height + statusImageViewHeight + postButtonWrapperHeight + 52 + 14)
+            return CGSize(width: view.frame.width, height: statusTextViewHeight + statusImageViewHeight + postButtonWrapperHeight + 52 + statusTextViewPadding)
         }
         
         return CGSize(width: view.frame.width, height: 200)

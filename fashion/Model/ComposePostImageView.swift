@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComposePostImage {
-    var postImage: UIImage?
+class ComposePostImageView: UIImageView {
+    var index: Int?
 }
 

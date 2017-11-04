@@ -48,7 +48,6 @@ class HomeDatasourceController: DatasourceController {
         setupLeftNavigationController()
         setupRightNavigationController()
         setupOtherNavigationController()
-        
     }
     
     
@@ -57,17 +56,18 @@ class HomeDatasourceController: DatasourceController {
         let offsetY = scrollView.contentOffset.y
 //        print("offsetY", offsetY)
         let contentHeight = scrollView.contentSize.height
+        
         if offsetY < -50 {
             //function to load more images
             print("above 0", offsetY)
             self.collectionView?.reloadData()
+            
         }else if offsetY > (contentHeight - scrollView.frame.size.height - 100) {
             //load more data
             //function to load more images
             print("loading new feed")
             self.collectionView?.reloadData()
         }
-
     }
 
     

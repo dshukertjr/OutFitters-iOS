@@ -76,7 +76,7 @@ class MainTabBarController: UITabBarController {
         
         //move the tab bar button image down a little bit
         for vc in self.viewControllers! {
-            vc.tabBarItem.title = nil
+//            vc.tabBarItem.title = nil
             vc.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
         }
 

@@ -27,7 +27,6 @@ extension HomeDatasourceController {
         searchButton.setImage(#imageLiteral(resourceName: "tabMessage").withRenderingMode(.alwaysOriginal), for: .normal)
         searchButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: searchButton), UIBarButtonItem(customView: searchButton)]
-
     }
     
     func setupOtherNavigationController() {

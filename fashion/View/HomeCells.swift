@@ -26,7 +26,7 @@ class HomeCell: DatasourceCell {
 
             if let statusImageRef = post.statusImageRef {
                 // Placeholder image
-                let placeholderImage = UIImage(named: "status1")
+                let placeholderImage = #imageLiteral(resourceName: "preloadingImage")
                 
                 let storageRef = Storage.storage().reference()
                 let reference = storageRef.child("posts/\(statusImageRef)")
